@@ -1,0 +1,1150 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agente Felice — Puoi vendere case senza perdere la tua vita per farlo</title>
+<meta name="description" content="Aiutiamo agenti immobiliari e titolari di agenzia a costruire un modo di lavorare più sostenibile, dove il successo non si misura solo dal fatturato, ma anche dalla qualità della vita.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+<meta property="og:title" content="Agente Felice — Puoi vendere case senza perdere la tua vita per farlo">
+<meta property="og:description" content="Per titolari di agenzia e agenti immobiliari: più chiarezza, una struttura che non ti tiene sempre in emergenza, e il tempo per tornare a vivere.">
+<!-- Quando il sito è online: aggiungere og:image (1200x630) e og:url con il dominio -->
+<meta name="theme-color" content="#0b0a08">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="rondine-128.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Brand Agente Felice: rondine dorata, Bodoni per i titoli, Garamond corsivo, oro bronzo → champagne */
+:root{
+  --bg:#0b0a08; --bg-2:#12100c; --surface:#17140f; --line:rgba(227,194,125,.16);
+  --gold:#c9a464; --gold-2:#e2c690; --bronze:#9a7738; --text:#f3ede2; --muted:#a39b8c;
+  --gold-grad:linear-gradient(90deg,#9a7738 0%,#c9a464 45%,#e8cf9c 100%);
+  --serif:"Bodoni Moda",Didot,"Bodoni 72",Georgia,serif; --garamond:"EB Garamond",Garamond,Georgia,serif; --sans:"Inter",system-ui,sans-serif;
+  --wrap:1180px; --gutter:clamp(16px,4vw,40px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--text);font-family:var(--garamond);font-size:18px;font-size-adjust:.46;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.btn,.nav-links,input,select,textarea,label,.micro,.form-note,.quiz-opts button,.quiz-back,.cap-msg,.speed,.scroll-hint,footer,.step .tag,.story-card .tag,.pbar,.call-steps li::before{font-family:var(--sans);font-size-adjust:none}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
+.eyebrow,.quiz-count,.lvl,.pillar .n{font-family:var(--serif);font-size:12px;letter-spacing:.3em;text-transform:uppercase;font-weight:700;font-size-adjust:none;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;width:max-content;max-width:100%}
+.eyebrow::after{content:"";display:block;width:56px;height:1px;background:var(--gold);margin-top:14px;opacity:.7}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.1;letter-spacing:-.01em;font-size-adjust:none}
+h2{font-size:clamp(32px,4.8vw,60px)}
+h1 em,h2 em,h3 em{font-family:var(--garamond);font-style:italic;font-weight:400;letter-spacing:0;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.06em}
+.lead{color:var(--muted);font-size:clamp(17px,1.6vw,20px);max-width:620px}
+section{position:relative}
+
+/* grana */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* bottoni */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font-weight:600;font-size:15px;transition:transform .3s,background .3s,box-shadow .3s;cursor:pointer;border:0;font-family:var(--sans)}
+.btn-gold{background:linear-gradient(135deg,var(--gold-2),var(--gold));color:#1a140a;box-shadow:0 10px 40px -12px rgba(212,172,98,.6)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 50px -12px rgba(212,172,98,.8)}
+.btn-ghost{border:1px solid var(--line);color:var(--text);background:rgba(255,255,255,.02)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-2)}
+.btn svg{width:16px;height:16px}
+
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .4s,backdrop-filter .4s,border-color .4s;border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(11,10,8,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo img{width:38px;height:auto}
+.logo span{font-family:var(--serif);font-weight:700;font-size:15px;letter-spacing:.32em;text-transform:uppercase;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+@media(max-width:420px){.logo span{font-size:12px;letter-spacing:.22em}.logo img{width:30px}}
+.nav-links{display:flex;gap:32px;font-size:14px;color:var(--muted)}
+.nav-links a:hover{color:var(--text)}
+.nav .btn{padding:11px 20px;font-size:14px}
+@media(max-width:900px){.nav-links{display:none}}
+@media(max-width:420px){.nav .btn{padding:10px 14px;font-size:13px}}
+
+/* hero */
+.hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden}
+#wheel{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(ellipse at 70% 50%,transparent 0%,rgba(11,10,8,.35) 55%,var(--bg) 100%),linear-gradient(90deg,var(--bg) 0%,rgba(11,10,8,.75) 38%,transparent 70%)}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-top:110px;padding-bottom:80px}
+.hero h1{text-shadow:0 2px 24px rgba(11,10,8,.9);font-size:clamp(44px,7vw,96px);max-width:800px;margin:22px 0 28px}
+.hero .lead{max-width:560px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
+.micro{font-size:13px;color:var(--muted);margin-top:18px;letter-spacing:.02em}
+#swallow{position:absolute;left:0;top:0;width:clamp(130px,15vw,220px);height:auto;z-index:2;pointer-events:none;transform:translate(72vw,50vh) translate(-50%,-50%) scale(.55);filter:drop-shadow(0 12px 34px rgba(212,172,98,.35));will-change:transform}
+@media(max-width:800px){#swallow{width:120px;opacity:.45}}
+@media(max-width:1100px){#wheel{opacity:.45}}
+@media(max-width:800px){#wheel{opacity:.4}.hero .scroll-hint{display:none}.trust span br{display:none}}
+
+/* fiducia */
+.trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2)}
+.trust-row{display:grid;grid-template-columns:repeat(4,1fr)}
+.trust-row > div{padding:30px 22px;border-left:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.trust-row > div:first-child{border-left:0;padding-left:0}
+.trust b{font-family:var(--serif);font-weight:300;font-size:34px;color:var(--gold-2);line-height:1}
+.trust span{font-size:13px;color:var(--muted);line-height:1.45}
+@media(max-width:860px){.trust-row{grid-template-columns:1fr 1fr}.trust-row > div:nth-child(3){border-left:0;padding-left:0}.trust-row > div:nth-child(n+3){border-top:1px solid var(--line)}}
+
+/* storia di Federico (sezione chiara) */
+.story{background:#efe7d8;color:#1d1810;padding:clamp(100px,13vw,170px) 0}
+.story .eyebrow{background:none;color:#8a6526}.story .eyebrow::after{background:#8a6526}
+.story h2 em{background:none;color:#8a6526}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:60px}
+@media(max-width:860px){.story-grid{grid-template-columns:1fr}}
+.story-card{border-radius:24px;padding:40px 36px}
+.story-card.before{background:#e3d8c4}
+.story-card.after{background:#1d1810;color:#f3ede2}
+.story-card .tag{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600}
+.story-card.before .tag{color:#6d6253}
+.story-card.after .tag{color:var(--gold)}
+.story-card ul{list-style:none;margin-top:22px}
+.story-card li{padding:14px 0;border-top:1px solid rgba(29,24,16,.14);font-size:17px}
+.story-card.after li{border-color:rgba(227,194,125,.18)}
+.story-quote{margin-top:60px;font-family:var(--serif);font-weight:300;font-size:clamp(26px,3.4vw,42px);line-height:1.22;max-width:950px}
+.story-quote em{color:#8a6526}
+.story-quote small{display:block;font-family:var(--sans);font-size:14px;color:#6d6253;margin-top:20px}
+.story-andrea{margin-top:clamp(90px,11vw,140px);padding-top:clamp(70px,9vw,110px);border-top:1px solid rgba(29,24,16,.15)}
+.timeline{list-style:none;margin-top:56px;position:relative;max-width:900px}
+.timeline::before{content:"";position:absolute;left:96px;top:10px;bottom:10px;width:1px;background:rgba(138,101,38,.35)}
+.timeline li{display:grid;grid-template-columns:118px 1fr;gap:28px;padding:0 0 46px;position:relative}
+.timeline li:last-child{padding-bottom:0}
+.timeline li::before{content:"";position:absolute;left:91px;top:12px;width:11px;height:11px;border-radius:50%;background:#efe7d8;border:2px solid #8a6526}
+.timeline li:last-child::before{background:#8a6526}
+.timeline .year{font-family:var(--serif);font-size:22px;color:#8a6526;padding-top:2px;background:#efe7d8;position:relative;z-index:1;align-self:start;width:max-content;padding-right:10px}
+.timeline h3{font-size:clamp(24px,2.8vw,32px);margin-bottom:10px;color:#1d1810}
+.timeline p{color:#4a4030;font-size:17px;max-width:640px}
+@media(max-width:600px){
+  .timeline::before{left:5px}
+  .timeline li{grid-template-columns:1fr;gap:6px;padding-left:30px}
+  .timeline li::before{left:0}
+  .timeline .year{background:none;padding:0}
+}
+
+/* test */
+.test{padding:clamp(100px,13vw,170px) 0;border-top:1px solid var(--line)}
+.quiz{margin-top:56px;background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:clamp(26px,4vw,48px);max-width:860px}
+.quiz-bar{height:3px;background:var(--line);border-radius:3px;overflow:hidden;margin-bottom:34px}
+.quiz-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-2));transition:width .5s}
+.quiz-count{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.quiz-q{font-family:var(--serif);font-weight:300;font-size:clamp(26px,3.4vw,38px);line-height:1.2;margin:14px 0 34px;min-height:2.4em}
+.quiz-opts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:560px){.quiz-opts{grid-template-columns:1fr}}
+.quiz-opts button{background:var(--bg);border:1px solid var(--line);color:var(--text);border-radius:14px;padding:18px;font:inherit;font-size:16px;cursor:pointer;transition:all .25s}
+.quiz-opts button:hover{border-color:var(--gold);color:var(--gold-2);background:rgba(212,172,98,.06)}
+.quiz-result h3{font-size:clamp(30px,4vw,46px);margin:14px 0 18px}
+.quiz-result p{color:var(--muted);max-width:620px}
+.quiz-result .score{font-family:var(--serif);font-size:80px;line-height:1;color:var(--gold-2)}
+.quiz-result .score small{font-size:28px;color:var(--muted)}
+.quiz-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.quiz-back{background:none;border:0;color:var(--muted);font:inherit;font-size:14px;cursor:pointer;margin-top:22px;padding:6px 0}
+.quiz-back:hover{color:var(--gold-2)}
+.res-head{display:flex;align-items:center;gap:26px}
+.mini-wheel{width:96px;height:96px;flex:0 0 96px;animation:spin 3s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.mini-wheel{animation:none}}
+.pbars{margin:30px 0 8px;display:grid;gap:12px}
+.pbar{display:grid;grid-template-columns:110px 1fr 44px;align-items:center;gap:14px;font-size:14px;color:var(--muted)}
+.pbar div{height:8px;background:var(--bg);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.pbar i{display:block;height:100%;background:rgba(212,172,98,.45);border-radius:8px}
+.pbar b{font-weight:500;text-align:right}
+.pbar.weak{color:var(--gold-2)}
+.pbar.weak i{background:linear-gradient(90deg,var(--gold),var(--gold-2))}
+.profile{margin-top:30px;padding:30px;border-radius:20px;background:linear-gradient(160deg,#2a2114,#17140f);border:1px solid rgba(227,194,125,.35)}
+.profile h4{font-family:var(--serif);font-weight:300;font-size:clamp(24px,3vw,32px);margin:10px 0 14px;line-height:1.15}
+.profile p{color:var(--muted)}
+.exercise{margin-top:22px;padding:20px 22px;border-left:2px solid var(--gold);background:rgba(11,10,8,.4);border-radius:0 12px 12px 0}
+.exercise b{display:block;color:var(--gold-2);font-weight:500;font-size:14px;letter-spacing:.04em;margin-bottom:8px}
+.exercise p{color:var(--text)}
+.capture{margin-top:22px;padding:30px;border-radius:20px;background:var(--bg);border:1px solid var(--line)}
+.capture h4{font-family:var(--serif);font-weight:300;font-size:clamp(22px,2.6vw,28px);margin:10px 0 10px;line-height:1.2}
+.capture > p{color:var(--muted);margin-bottom:20px}
+.cap-row{display:grid;grid-template-columns:1fr 1.3fr;gap:10px}
+@media(max-width:560px){.cap-row{grid-template-columns:1fr}.capture{padding:22px}}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--muted);margin:16px 0 4px;cursor:pointer}
+.consent input{width:18px;height:18px;flex:0 0 18px;margin-top:2px;accent-color:var(--gold)}
+.consent a{color:var(--gold-2);text-decoration:underline}
+.capture .btn{margin-top:16px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.cap-msg{font-size:14px;margin-top:12px;color:var(--muted);min-height:1em}
+.cap-msg.err{color:#e8987f}
+.quiz-actions .or{color:var(--muted);font-size:14px;align-self:center}
+@media(max-width:560px){.pbar{grid-template-columns:90px 1fr 40px;gap:10px}.res-head{gap:18px}.mini-wheel{width:76px;height:76px;flex-basis:76px}.profile{padding:22px}}
+
+/* call + faq */
+.call-steps{list-style:none;margin-top:36px;counter-reset:s}
+.call-steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:14px;padding:14px 0;border-top:1px solid var(--line);color:var(--muted);font-size:16px}
+.call-steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--serif);color:var(--gold-2);font-size:22px;line-height:1.2}
+.call-steps b{color:var(--text);font-weight:500;display:block}
+.faq{padding:clamp(100px,13vw,170px) 0;border-top:1px solid var(--line)}
+.faq-list{margin-top:50px;max-width:900px}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:26px 50px 26px 0;position:relative;font-family:var(--serif);font-size:clamp(21px,2.4vw,27px);font-weight:300}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:6px;top:50%;transform:translateY(-50%);font-family:var(--sans);font-size:26px;color:var(--gold);transition:transform .3s}
+.faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.faq details p{color:var(--muted);padding:0 0 28px;max-width:740px}
+
+/* barra fissa mobile */
+.mbar{display:none}
+@media(max-width:760px){
+  .mbar{display:flex;gap:10px;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;padding:10px;border-radius:999px;background:rgba(23,20,15,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line);transform:translateY(140%);transition:transform .4s}
+  .mbar.show{transform:none}
+  .mbar .btn{flex:1;justify-content:center;padding:13px 16px}
+  .mbar .wa{flex:0 0 48px;padding:0;justify-content:center;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;color:var(--gold-2)}
+  footer{padding-bottom:100px}
+}
+.scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:10px}
+.scroll-hint span{width:1px;height:46px;background:linear-gradient(var(--gold),transparent);animation:drip 2.2s infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.speed{position:absolute;right:var(--gutter);bottom:30px;z-index:2;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-align:right}
+.speed b{display:block;font-family:var(--serif);font-weight:300;font-size:15px;letter-spacing:0;text-transform:none;color:var(--gold-2);margin-top:4px}
+@media(max-width:700px){.speed{display:none}}
+
+/* domanda */
+.question{padding:clamp(110px,16vw,200px) 0;text-align:center}
+.question p{font-family:var(--serif);font-weight:300;font-size:clamp(32px,5.4vw,72px);line-height:1.15;max-width:1000px;margin:0 auto}
+.question .w{opacity:.14;transition:opacity .2s}
+.question em{font-family:var(--garamond);font-style:italic;color:var(--gold-2)}
+
+/* ciclo */
+.cycle{padding:60px 0 0}
+.cycle-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:60px}
+@media(max-width:860px){.cycle-head{grid-template-columns:1fr}}
+.track-outer{overflow:hidden}
+.track{display:flex;gap:24px;padding:0 var(--gutter) 40px;width:max-content}
+.step{width:min(420px,78vw);min-height:380px;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:36px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.step .num{font-family:var(--serif);font-size:110px;line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(227,194,125,.35)}
+.step h3{font-size:34px;margin:18px 0 12px}
+.step p{color:var(--muted);font-size:16px}
+.step .tag{position:absolute;top:30px;right:30px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.step.loop{background:linear-gradient(160deg,#2a2114,var(--surface));border-color:rgba(227,194,125,.4)}
+.step.loop .num{font-size:90px;-webkit-text-stroke:0;color:var(--gold-2);font-style:italic}
+@media(max-width:860px){.track{flex-direction:column;width:auto}.step{width:auto;min-height:0}}
+
+/* problemi */
+.problems{padding:clamp(90px,12vw,150px) 0}
+.prob-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:56px}
+@media(max-width:860px){.prob-grid{grid-template-columns:1fr}}
+.prob{border-top:1px solid var(--line);padding:34px 0}
+.prob .eyebrow{color:var(--muted)}
+.prob h3{font-size:clamp(28px,3.4vw,42px);margin:16px 0 18px}
+.prob p{color:var(--muted);max-width:520px}
+.prob p + p{margin-top:12px}
+.prob .ask{color:var(--text);font-family:var(--garamond);font-style:italic;font-size:21px;margin-top:22px}
+
+/* perché */
+.why{padding:clamp(90px,12vw,150px) 0;background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}
+.why-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center}
+@media(max-width:900px){.why-grid{grid-template-columns:1fr;gap:40px}}
+.why p{color:var(--muted)}
+.why p + p{margin-top:16px}
+.why blockquote{font-family:var(--garamond);font-size:clamp(26px,3vw,36px);font-style:italic;line-height:1.25;border-left:2px solid var(--gold);padding-left:28px;color:var(--text)}
+.why blockquote small{display:block;font-family:var(--sans);font-style:normal;font-size:13px;color:var(--muted);margin-top:18px;letter-spacing:.04em}
+.marquee{margin-top:90px;white-space:nowrap;font-family:var(--serif);font-size:clamp(50px,9vw,130px);font-weight:300;color:transparent;-webkit-text-stroke:1px rgba(227,194,125,.25)}
+.marquee span{display:inline-block;padding-right:60px}
+.marquee em{color:var(--gold-2);-webkit-text-stroke:0;font-style:italic}
+
+/* metodo */
+.method{padding:clamp(100px,13vw,170px) 0}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:64px;perspective:1200px}
+@media(max-width:960px){.pillars{grid-template-columns:1fr}}
+.pillar{position:relative;background:linear-gradient(180deg,#1b1711,#121009);border:1px solid var(--line);border-radius:24px;padding:40px 34px 44px;transform-style:preserve-3d;transition:transform .25s ease-out,border-color .3s;will-change:transform}
+.pillar:hover{border-color:rgba(227,194,125,.45)}
+.pillar .glow{position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(400px circle at var(--mx,50%) var(--my,50%),rgba(227,194,125,.12),transparent 50%)}
+.pillar:hover .glow{opacity:1}
+.pillar .n{font-size:13px;color:var(--gold);letter-spacing:.2em;transform:translateZ(30px)}
+.pillar h3{font-size:40px;margin:70px 0 18px;transform:translateZ(50px)}
+.pillar p{color:var(--muted);font-size:16px;transform:translateZ(25px)}
+.pillar .q{color:var(--text);font-family:var(--garamond);font-style:italic;font-size:21px;margin-bottom:14px;line-height:1.35}
+.pillar .icon{position:absolute;top:34px;right:34px;width:54px;height:54px;transform:translateZ(60px)}
+
+/* differenze */
+.diff{padding:0 0 clamp(100px,13vw,170px)}
+.vs{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:24px;overflow:hidden;margin-top:56px}
+@media(max-width:760px){.vs{grid-template-columns:1fr}}
+.vs > div{padding:42px 38px}
+.vs .old{background:var(--bg-2)}
+.vs .new{background:linear-gradient(160deg,#2a2114,#17140f)}
+.vs h3{font-size:26px;margin-bottom:24px}
+.vs .old h3{color:var(--muted)}
+.vs ul{list-style:none}
+.vs li{padding:14px 0;border-top:1px solid var(--line);display:flex;gap:14px;align-items:flex-start}
+.vs .old li{color:var(--muted)}
+.vs li svg{flex:0 0 18px;width:18px;height:18px;margin-top:4px}
+.diff-note{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:50px;color:var(--muted)}
+@media(max-width:760px){.diff-note{grid-template-columns:1fr;gap:20px}}
+.diff-note strong{color:var(--text);font-weight:500}
+
+/* chi siamo */
+.team{padding:clamp(100px,13vw,170px) 0;background:var(--bg-2);border-top:1px solid var(--line)}
+.people{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:64px}
+@media(max-width:860px){.people{grid-template-columns:1fr}}
+.person{border:1px solid var(--line);border-radius:24px;overflow:hidden;background:var(--surface)}
+.portrait{aspect-ratio:4/3;background:radial-gradient(circle at 30% 30%,#3a2d18,#120f0a 70%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.portrait span{font-family:var(--serif);font-size:120px;font-style:italic;color:rgba(236,210,154,.5)}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.person .body{padding:32px 34px 38px}
+.person h3{font-size:34px}
+.person .role{color:var(--gold);font-size:14px;margin:6px 0 18px;letter-spacing:.02em}
+.person p{color:var(--muted);font-size:16px}
+.team-close{text-align:center;margin-top:60px;font-family:var(--garamond);font-style:italic;font-size:clamp(22px,2.6vw,30px);max-width:760px;margin-left:auto;margin-right:auto}
+
+/* percorsi */
+.paths{padding:clamp(100px,13vw,170px) 0}
+.path-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:60px}
+@media(max-width:960px){.path-grid{grid-template-columns:1fr}}
+.path{border:1px solid var(--line);border-radius:24px;padding:36px 32px;display:flex;flex-direction:column;background:var(--surface);transition:transform .35s,border-color .35s}
+.path:hover{transform:translateY(-6px);border-color:rgba(227,194,125,.45)}
+.path.featured{background:linear-gradient(160deg,#2c2215,#16130e);border-color:rgba(227,194,125,.45)}
+.path .lvl{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.path h3{font-size:32px;margin:16px 0 10px}
+.path .fmt{color:var(--text);font-size:15px;margin-bottom:16px}
+.path p{color:var(--muted);font-size:15.5px;flex:1}
+.path .btn{margin-top:28px;align-self:flex-start}
+
+/* contatti */
+.contact{padding:clamp(100px,13vw,170px) 0 80px;border-top:1px solid var(--line);overflow:hidden}
+.contact::before{content:"";position:absolute;width:900px;height:900px;left:50%;top:-300px;transform:translateX(-50%);background:radial-gradient(circle,rgba(212,172,98,.14),transparent 60%);pointer-events:none}
+.contact-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:70px}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr;gap:50px}}
+.contact h2{font-size:clamp(38px,5.4vw,70px)}
+.direct{margin-top:40px;display:grid;gap:14px}
+.direct a{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 22px;border:1px solid var(--line);border-radius:16px;transition:border-color .3s,background .3s}
+.direct a:hover{border-color:var(--gold);background:rgba(212,172,98,.05)}
+.direct small{display:block;color:var(--muted);font-size:13px}
+.direct b{font-weight:500;word-break:break-word}
+.direct svg{width:18px;height:18px;flex:0 0 18px;color:var(--gold)}
+form{background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:38px}
+form h3{font-size:28px;margin-bottom:6px}
+form > p{color:var(--muted);font-size:15px;margin-bottom:26px}
+label{display:block;font-size:13px;color:var(--muted);margin:18px 0 8px}
+input,textarea,select{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px 16px;color:var(--text);font:inherit;font-size:16px;transition:border-color .3s}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold)}
+textarea{min-height:120px;resize:vertical}
+.choice{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.choice label{margin:0;cursor:pointer}
+.choice input{position:absolute;opacity:0;pointer-events:none}
+.choice span{display:block;text-align:center;padding:13px 10px;border:1px solid var(--line);border-radius:12px;color:var(--muted);font-size:14px;transition:all .25s}
+.choice input:checked + span{border-color:var(--gold);color:var(--gold-2);background:rgba(212,172,98,.08)}
+.choice input:focus-visible + span{outline:2px solid var(--gold);outline-offset:2px}
+form .btn{width:100%;justify-content:center;margin-top:26px}
+.form-note{font-size:12.5px;color:var(--muted);margin-top:14px;text-align:center}
+
+footer{border-top:1px solid var(--line);padding:70px 0 36px;color:var(--muted);font-size:13.5px}
+footer .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-top:56px;padding-top:26px;border-top:1px solid var(--line)}
+.foot-brand{text-align:center;display:flex;flex-direction:column;align-items:center}
+.foot-brand img{width:96px;height:auto;margin-bottom:22px}
+.foot-name{font-family:var(--serif);font-weight:700;font-size:clamp(22px,3vw,30px);letter-spacing:.32em;padding-left:.32em;text-transform:uppercase;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.foot-claim{font-family:var(--garamond);font-style:italic;font-size:20px;color:var(--gold);margin-top:14px}
+.foot-claim::before{content:"";display:block;width:120px;height:1px;background:var(--gold);opacity:.5;margin:0 auto 16px}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(40px)}
+.no-js .rv,.reduced .rv{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none}.scroll-hint span{animation:none}}
+</style>
+</head>
+<body class="no-js">
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="Agente Felice"><img src="rondine-128.png" alt="" width="38" height="37"><span>Agente Felice</span></a>
+    <nav class="nav-links">
+      <a href="#ciclo">Il problema</a>
+      <a href="#metodo">Il metodo</a>
+      <a href="#chi-siamo">Chi siamo</a>
+      <a href="#percorsi">Percorsi</a>
+      <a href="#test">Il test</a>
+    </nav>
+    <a href="#contatti" class="btn btn-gold">Prenota una call</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <canvas id="wheel" aria-hidden="true"></canvas>
+  <img id="swallow" src="rondine-640.png" alt="" aria-hidden="true" width="640" height="616">
+  <div class="wrap">
+    <div class="eyebrow rv">Per titolari di agenzia e agenti immobiliari</div>
+    <h1 class="rv">Puoi vendere case <em>senza perdere la tua vita</em> per farlo.</h1>
+    <p class="lead rv">Ricerca, acquisizione, vendita, rogito. Poi da capo. Ti aiutiamo a costruire un modo di lavorare in cui il successo non si misura solo dal fatturato, ma anche da come vivi. Con il metodo di chi quel ciclo l'ha vissuto in prima persona.</p>
+    <div class="hero-ctas rv">
+      <a href="#contatti" class="btn btn-gold">Prenota la call gratuita
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="#test" class="btn btn-ghost">Fai il test · 1 minuto</a>
+    </div>
+    <p class="micro rv">20 minuti · Con Andrea o Federico</p>
+  </div>
+  <div class="scroll-hint">Scorri<span></span></div>
+  <div class="speed">La ruota<b id="speedLabel">gira a vuoto</b></div>
+</section>
+
+
+<!-- DOMANDA -->
+<section class="question">
+  <div class="wrap">
+    <p id="bigq">Sei sicuro che il successo significhi <em>guadagnare di più</em> e non <em>vivere meglio?</em></p>
+  </div>
+</section>
+
+<!-- CICLO -->
+<section class="cycle" id="ciclo">
+  <div class="wrap cycle-head">
+    <div>
+      <div class="eyebrow rv">Problema n.1 · Strutturale</div>
+      <h2 class="rv" style="margin-top:18px">Ricerca. Acquisizione. Vendita. Rogito. <em>Poi da capo.</em></h2>
+    </div>
+    <p class="lead rv">Lo chiamiamo il Ciclo del Criceto: corri sempre, produci sempre, ma non arrivi mai davvero da nessuna parte. Quante volte l'hai già fatto?</p>
+  </div>
+  <div class="track-outer" id="trackOuter">
+    <div class="track" id="track">
+      <article class="step">
+        <span class="tag">Mese 1</span>
+        <div class="num">01</div>
+        <div><h3>Ricerca</h3><p>Il primo mese cerchi case da vendere. Zero euro in entrata, ansia in salita.</p></div>
+      </article>
+      <article class="step">
+        <span class="tag">Mese 2</span>
+        <div class="num">02</div>
+        <div><h3>Acquisizione</h3><p>Porta a porta, telefonate, relazioni. Tutto il tempo va nel costruire il portafoglio. Ancora niente in cassa.</p></div>
+      </article>
+      <article class="step">
+        <span class="tag">Mese 3</span>
+        <div class="num">03</div>
+        <div><h3>Vendita</h3><p>Vendi quello che hai trovato. La cassa entra, per un po' respiri. Ma nessuno sta cercando le prossime case.</p></div>
+      </article>
+      <article class="step">
+        <span class="tag">Mese 4</span>
+        <div class="num">04</div>
+        <div><h3>Rogito</h3><p>Settimane di carte, APE, conformità. Stessa commissione di prima. Fai cassa, ma il portafoglio è vuoto.</p></div>
+      </article>
+      <article class="step loop">
+        <span class="tag">Mese 5</span>
+        <div class="num">da capo.</div>
+        <div><h3>E il mese dopo riparti.</h3><p>Il criceto corre, si esaurisce, si ferma. E la ruota riparte da sola. Ogni stagione. Da anni.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMI 2-3 -->
+<section class="problems">
+  <div class="wrap">
+    <div class="prob-grid">
+      <div class="prob rv">
+        <div class="eyebrow">Problema n.2 · Identitario</div>
+        <h3>Il fatturato torna. <em>L'ansia no.</em></h3>
+        <p>Hai chiuso un mese ottimo. Dovresti essere tranquillo. Non lo sei.</p>
+        <p>Hai imparato a misurare il tuo valore in un solo modo: quanto hai fatturato questo mese rispetto al mese scorso. Appena chiuso il prossimo, la prima cosa che farai è riaprire quel numero.</p>
+      </div>
+      <div class="prob rv">
+        <div class="eyebrow">Problema n.3 · Non stacchi mai</div>
+        <h3>Anche quando stacchi, <em>la domenica sera torna l'ansia.</em></h3>
+        <p>Il sabato riesci a staccare, e la domenica quasi te la godi. Poi arriva la sera, e il lunedì comincia a pesarti prima ancora che inizi.</p>
+        <p class="ask">A quando risale l'ultima volta che hai staccato davvero, e il lunedì sei tornato felice al lavoro?</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORIA DI FEDERICO -->
+<!-- Da completare con Federico: dettagli concreti del "dopo" (ore di lavoro oggi, weekend, cosa è cambiato) -->
+<section class="story" id="storia">
+  <div class="wrap">
+    <div class="eyebrow rv">La storia di Federico</div>
+    <h2 class="rv" style="margin-top:18px;max-width:950px">Ci è passato prima di te. <em>E ne è uscito senza smettere di fare l'agente.</em></h2>
+    <div class="story-grid">
+      <div class="story-card before rv">
+        <div class="tag">Prima</div>
+        <ul>
+          <li>Dodici, tredici, quattordici ore al giorno</li>
+          <li>Trenta cose da fare ogni mattina, tutte urgenti</li>
+          <li>Il valore misurato solo dal fatturato del mese</li>
+          <li>L'ansia anche nei mesi buoni, perché sapeva che sarebbero finiti</li>
+        </ul>
+      </div>
+      <div class="story-card after rv">
+        <div class="tag">Dopo</div>
+        <ul>
+          <li>Ha smesso di misurarsi solo dal fatturato</li>
+          <li>Ha diviso il lavoro in fasi, invece di fare tutto insieme</li>
+          <li>Ha delegato quello che poteva essere delegato</li>
+          <li>Si è ripreso la sua vita, fuori dall'agenzia</li>
+        </ul>
+      </div>
+    </div>
+    <p class="story-quote rv">"Quello che mi ha sorpreso di più, quando ero dentro quel ciclo, non erano i mesi senza soldi. <em>Era l'ansia permanente.</em>"
+      <small>Federico Soraci, Co-Founder di Agente Felice</small></p>
+
+    <!-- STORIA DI ANDREA -->
+    <div class="story-andrea" id="storia-andrea">
+      <div class="eyebrow rv">La storia di Andrea</div>
+      <h2 class="rv" style="margin-top:18px;max-width:950px">Ha cercato il successo nei soldi. <em>E ha imparato a misurarlo in un altro modo.</em></h2>
+      <ol class="timeline">
+        <li class="rv">
+          <span class="year">2019</span>
+          <div><h3>Volevo solo essere indipendente.</h3>
+          <p>Finito il liceo, ho iniziato a lavorare per smettere di chiedere soldi a casa: prima commesso, poi in fabbrica su tre turni. Nel 2021 è arrivato il contratto a tempo indeterminato, il traguardo che cercavo. Ed è proprio lì che ho iniziato a chiedermi cosa volessi costruire davvero.</p></div>
+        </li>
+        <li class="rv">
+          <span class="year">2021</span>
+          <div><h3>Una perdita che cambia le domande.</h3>
+          <p>A dicembre è morta mia nonna. Mi ha portato a guardare in faccia una domanda che rimandavo: come sto usando il mio tempo?</p></div>
+        </li>
+        <li class="rv">
+          <span class="year">2023</span>
+          <div><h3>Credevo che i soldi avrebbero cambiato tutto.</h3>
+          <p>Studiavo tra un turno e l'altro e provavo strade nuove. Davo ai soldi un potere enorme. Poi un progetto in cui avevo creduto è crollato, e ho perso molto. È stato uno dei momenti più difficili della mia vita, e quello in cui ho dovuto rivedere cosa significasse per me il successo.</p></div>
+        </li>
+        <li class="rv">
+          <span class="year">2025</span>
+          <div><h3>Dall'altra parte del tavolo.</h3>
+          <p>Lavorando ogni giorno con architetti e interior designer ho visto da vicino quanto il modo di organizzare il lavoro sia intrecciato al modo di viverlo. Nel 2026 ho fondato Studio Consapevole: li aiuto a rimettere ordine in priorità, tempo e confini. Quando Federico mi ha raccontato il Ciclo del Criceto, l'ho riconosciuto subito.</p></div>
+        </li>
+      </ol>
+      <p class="story-quote rv">"Ho iniziato cercando indipendenza. <em>Sto imparando a costruirla</em> attraverso competenze, responsabilità e relazioni. È da qui che accompagno anche gli altri."
+        <small>Andrea Bisciotti, CEO di Agente Felice</small></p>
+    </div>
+  </div>
+</section>
+
+<!-- TEST -->
+<section class="test" id="test">
+  <div class="wrap">
+    <div class="eyebrow rv">Il test · 1 minuto</div>
+    <h2 class="rv" style="margin-top:18px;max-width:900px">Quanto sei dentro <em>il Ciclo del Criceto?</em></h2>
+    <p class="lead rv" style="margin-top:20px">Nove domande, risposte oneste. Alla fine scopri quanto veloce gira la tua ruota, qual è il tuo punto debole e da quale esercizio partire domani.</p>
+    <div class="quiz rv" id="quiz" aria-live="polite">
+      <div class="quiz-bar"><i id="quizBar"></i></div>
+      <div id="quizBody"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PERCHÉ -->
+<section class="why">
+  <div class="wrap why-grid">
+    <div>
+      <div class="eyebrow rv">Perché esiste Agente Felice</div>
+      <h2 class="rv" style="margin:18px 0 30px">Decine di corsi ti insegnano a vendere di più. <em>Noi vogliamo aiutarti a vivere meglio</em> mentre lo fai.</h2>
+      <p class="rv">Nel settore immobiliare esistono decine di corsi per vendere di più, acquisire di più, strutturare meglio l'agenzia. Nessuno che si chieda se, oltre a vendere di più, stai anche vivendo meglio.</p>
+      <p class="rv">Non ti promettiamo più fatturato. Ti promettiamo di smettere di misurarti solo da quello.</p>
+    </div>
+    <blockquote class="rv">"Felice" è la parola che, in questo mestiere, non usa mai nessuno.
+      <small>Per questo l'abbiamo messa nel nome.</small></blockquote>
+  </div>
+  <div class="marquee" aria-hidden="true"><div id="marq"><span>Chiarezza · <em>Struttura</em> · Benessere · </span><span>Chiarezza · <em>Struttura</em> · Benessere · </span><span>Chiarezza · <em>Struttura</em> · Benessere · </span></div></div>
+</section>
+
+<!-- METODO -->
+<section class="method" id="metodo">
+  <div class="wrap">
+    <div class="eyebrow rv">Il metodo · I 3 pilastri</div>
+    <h2 class="rv" style="margin-top:18px;max-width:900px">Prima capiamo dove sei. Poi come lavori. <em>Poi come farti lavorare meglio.</em></h2>
+    <div class="pillars">
+      <article class="pillar rv">
+        <div class="glow"></div>
+        <svg class="icon" viewBox="0 0 56 56" fill="none" stroke="#ecd29a" stroke-width="1.2"><circle cx="28" cy="28" r="26"/><circle cx="28" cy="28" r="16"/><circle cx="28" cy="28" r="5" fill="#d4ac62" stroke="none"/></svg>
+        <div class="n">01</div>
+        <h3>Chiarezza</h3>
+        <p class="q">Sai rispondere a dove vuoi essere tra tre anni?</p>
+        <p>Se la risposta è no, ogni decisione ti sembra ugualmente urgente, e finisci per fare tutto, male, insieme. Partiamo da tre cose: dove sei davvero, dove vuoi arrivare, cosa sei disposto a smettere di fare.</p>
+      </article>
+      <article class="pillar rv">
+        <div class="glow"></div>
+        <svg class="icon" viewBox="0 0 56 56" fill="none" stroke="#ecd29a" stroke-width="1.2"><rect x="4" y="4" width="20" height="20" rx="3"/><rect x="32" y="4" width="20" height="20" rx="3"/><rect x="4" y="32" width="20" height="20" rx="3"/><rect x="32" y="32" width="20" height="20" rx="3" fill="#d4ac62" stroke="none"/></svg>
+        <div class="n">02</div>
+        <h3>Struttura</h3>
+        <p class="q">Una fase alla volta, non tutte insieme.</p>
+        <p>La mattina cerchi casa, il pomeriggio sei dietro a un rogito, la sera rispondi a un cliente. Dedica una settimana a ogni fase e riesci finalmente a fare bene anche solo una cosa alla volta.</p>
+      </article>
+      <article class="pillar rv">
+        <div class="glow"></div>
+        <svg class="icon" viewBox="0 0 56 56" fill="none" stroke="#ecd29a" stroke-width="1.2"><path d="M4 36c8-14 16-14 24 0s16 14 24 0"/><path d="M4 24c8-14 16-14 24 0s16 14 24 0" opacity=".5"/><circle cx="28" cy="30" r="4" fill="#d4ac62" stroke="none"/></svg>
+        <div class="n">03</div>
+        <h3>Benessere</h3>
+        <p class="q">Il tuo primo strumento di lavoro sei tu.</p>
+        <p>Dormi poco, ti muovi ancora meno, non stacchi mai. Lo fai per chiudere un appuntamento in più, e arrivi alla trattativa meno lucido. Prendersi cura di sé non è un lusso: è una strategia.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- DIFFERENZE -->
+<section class="diff">
+  <div class="wrap">
+    <div class="eyebrow rv">Perché siamo diversi</div>
+    <h2 class="rv" style="margin-top:18px;max-width:950px">In due settimane il cambiamento parte. <em>Se resti uguale, il problema non era lo strumento.</em></h2>
+    <div class="vs rv">
+      <div class="old">
+        <h3>Il corso tradizionale</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>Weekend di formazione, poi si torna come prima</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>Metodo nuovo, ambiente vecchio</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>Nessuno tocca testa, corpo, relazioni</li>
+        </ul>
+      </div>
+      <div class="new">
+        <h3>Agente Felice</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#ecd29a" stroke-width="2"><path d="M5 12l5 5 9-10"/></svg>Percorso strutturato, una fase alla volta</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#ecd29a" stroke-width="2"><path d="M5 12l5 5 9-10"/></svg>Metodo e benessere insieme</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#ecd29a" stroke-width="2"><path d="M5 12l5 5 9-10"/></svg>Supporto professionale solo quando sei pronto</li>
+        </ul>
+      </div>
+    </div>
+    <div class="diff-note">
+      <p class="rv">Molti corsi ti caricano per un weekend e dopo due settimane sei tornato a rispondere ai clienti alle undici di sera. Il metodo non era sbagliato: <strong>nessuno ha toccato quello che c'è intorno</strong>. La testa, il corpo, le persone con cui vivi.</p>
+      <p class="rv">Per il lavoro più profondo ci appoggiamo a professionisti che conosciamo personalmente, ma solo quando sei pronto. <strong>Se cerchi qualcuno che ti dica solo quello che vuoi sentirti dire, probabilmente non siamo noi.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- CHI SIAMO -->
+<section class="team" id="chi-siamo">
+  <div class="wrap">
+    <div class="eyebrow rv">Chi siamo</div>
+    <h2 class="rv" style="margin-top:18px;max-width:950px">Uno ci è passato. <em>L'altro lo ha visto succedere cento volte</em>, in contesti diversi.</h2>
+    <div class="people">
+      <article class="person rv">
+        <!-- Per la foto: metti federico.jpg nella cartella sito e togli il commento qui sotto -->
+        <div class="portrait"><span>F</span><!-- <img src="federico.jpg" alt="Federico Soraci"> --></div>
+        <div class="body">
+          <h3>Federico Soraci</h3>
+          <div class="role">Co-Founder · 20° anno da agente immobiliare</div>
+          <p>Federico ha oltre 15 anni di esperienza come titolare di agenzia immobiliare. Ha vissuto esattamente il ciclo che hai appena letto, fino a lavorare tredici ore al giorno, convinto che fosse normale. Poi ne è uscito, e oggi spiega agli agenti perché quel ciclo esiste in questo mestiere.</p>
+        </div>
+      </article>
+      <article class="person rv">
+        <!-- Per la foto: metti andrea.jpg nella cartella sito e togli il commento qui sotto -->
+        <div class="portrait"><span>A</span><!-- <img src="andrea.jpg" alt="Andrea Bisciotti"> --></div>
+        <div class="body">
+          <h3>Andrea Bisciotti</h3>
+          <div class="role">CEO · Metodo di coaching</div>
+          <p>Andrea non ha mai fatto l'agente immobiliare, ma il settore lo conosce da dentro: anni di rapporti diretti con agenzie e operatori, portando contatti e opportunità reali. Lo stesso meccanismo lo vede ripetersi ogni giorno con architetti, interior designer e imprenditori. Cambia il contesto, il problema di fondo resta lo stesso.</p>
+        </div>
+      </article>
+    </div>
+    <p class="team-close rv">Federico spiega perché il ciclo esiste in questo mestiere. Andrea spiega come uscirne, perché lo ha già visto succedere altrove.</p>
+  </div>
+</section>
+
+<!-- PERCORSI -->
+<section class="paths" id="percorsi">
+  <div class="wrap">
+    <div class="eyebrow rv">I percorsi</div>
+    <h2 class="rv" style="margin-top:18px;max-width:900px">Si entra gratis. <em>Si sale solo quando sei pronto.</em></h2>
+    <div class="path-grid">
+      <article class="path rv">
+        <div class="lvl">Ingresso · Gratuito</div>
+        <h3>Webinar live</h3>
+        <div class="fmt">Prossima edizione: dicembre 2026 · "Il Regalo di Natale"</div>
+        <p>60 minuti in diretta con Andrea e Federico. Il Ciclo del Criceto, i 3 pilastri e i primi passi concreti per uscirne. E perché il tempo con le persone che ami vale più di un rogito in più.</p>
+        <a href="#contatti" class="btn btn-ghost" data-topic="webinar">Avvisami della data</a>
+      </article>
+      <article class="path featured rv">
+        <div class="lvl">Approfondimento</div>
+        <h3>Masterclass</h3>
+        <div class="fmt">90–120 minuti, registrata, con esercizi pratici</div>
+        <p>Entriamo in profondità su chiarezza, struttura e benessere, con esercizi da applicare subito. Non risolve tutto, niente lo fa, ma ti dà una mappa.</p>
+        <a href="#contatti" class="btn btn-gold" data-topic="masterclass">Voglio la Masterclass</a>
+      </article>
+      <article class="path rv">
+        <div class="lvl">Premium · 1:1</div>
+        <h3>Percorso individuale</h3>
+        <div class="fmt">3 mesi di lavoro diretto</div>
+        <p>Andrea sul metodo di coaching, Federico sulla parte immobiliare. Lo proponiamo solo a chi ha già fatto un pezzo di strada con noi.</p>
+        <a href="#contatti" class="btn btn-ghost" data-topic="percorso">Parliamone in una call</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="eyebrow rv">Domande frequenti</div>
+    <h2 class="rv" style="margin-top:18px;max-width:900px">Le cose che ci chiedono <em>prima di fare il primo passo.</em></h2>
+    <div class="faq-list rv">
+      <details>
+        <summary>Per chi è Agente Felice?</summary>
+        <p>Per titolari di agenzia e agenti immobiliari che lavorano tanto, vendono, e nonostante questo non riescono a stare tranquilli. Se oggi lavori sei ore al giorno, stacchi davvero nel weekend e il lunedì non ti pesa, probabilmente non ti serviamo. E va benissimo così.</p>
+      </details>
+      <details>
+        <summary>Gestisco più agenzie e un team. Fa per me?</summary>
+        <p>Sì, anzi: chi gestisce più sedi è spesso quello sotto più pressione, perché porta sulle spalle anche i numeri degli altri. Il pilastro della struttura lavora proprio su questo: cosa tenere, cosa delegare e come smettere di essere l'unico collo di bottiglia.</p>
+      </details>
+      <details>
+        <summary>Devo lavorare meno o vendere meno?</summary>
+        <p>No. Non siamo qui per dirti di lavorare meno, ma di lavorare meglio. Una persona riposata e lucida arriva meglio alla trattativa e chiude meglio. L'obiettivo è una carriera che funzioni nel lungo periodo e, insieme, una vita fuori dall'agenzia.</p>
+      </details>
+      <details>
+        <summary>Ho già fatto altri corsi e non è cambiato nulla.</summary>
+        <p>Succede spesso: ti motivano, ti danno strumenti, e dopo due settimane tutto torna come prima. Il problema non è lo strumento. È che senza cambiare il modo in cui organizzi e pensi il tuo lavoro, nessuna tecnica regge nel tempo. Noi non lavoriamo sulle tecniche: lavoriamo sul contesto in cui le usi.</p>
+      </details>
+      <details>
+        <summary>Non ho tempo adesso, magari più avanti.</summary>
+        <p>Di solito "più avanti" non arriva: arriva un altro mese intenso, poi l'estate, poi settembre, poi le feste. Il percorso è pensato per chi ha poco tempo: non chiede giornate intere, chiede costanza.</p>
+      </details>
+      <details>
+        <summary>Guadagno già bene, perché dovrei cambiare qualcosa?</summary>
+        <p>Dipende da come ti senti mentre guadagni bene: come passi le giornate, come stai fisicamente, come vanno le tue relazioni. Se c'è anche solo una parte di te che sa che questo ritmo non è sostenibile, vale la pena parlarne.</p>
+      </details>
+      <details>
+        <summary>Non è più psicologia che formazione professionale?</summary>
+        <p>È entrambe le cose. Puoi avere il miglior CRM del mondo, ma se non sai usare bene il tuo tempo non serve. Puoi lavorare moltissimo sul mindset, ma senza un metodo operativo chiaro cambia poco. La differenza la fa la combinazione.</p>
+      </details>
+      <details>
+        <summary>È una specie di terapia?</summary>
+        <p>No. Lavoriamo su chiarezza, organizzazione del lavoro e abitudini. Per il lavoro più profondo ci appoggiamo a professionisti che conosciamo personalmente, ma te lo proponiamo solo se e quando sei pronto. Mai prima.</p>
+      </details>
+      <details>
+        <summary>Andrea non ha mai fatto l'agente immobiliare. Cosa può insegnarmi?</summary>
+        <p>È proprio per questo che siamo in due. Federico conosce il mestiere da dentro, da quasi vent'anni, e sa perché il ciclo esiste. Andrea lavora ogni giorno con professionisti intrappolati nello stesso meccanismo, architetti, interior designer, imprenditori, e sa come se ne esce. Cambia il contesto, il problema di fondo è lo stesso.</p>
+      </details>
+      <details>
+        <summary>In quanto tempo vedo un cambiamento?</summary>
+        <p>I primi cambiamenti partono in un paio di settimane, quando smetti di fare tutto insieme. Quello vero lo riconosci più avanti: la sera di una giornata storta, il tuo primo pensiero non è più il fatturato.</p>
+      </details>
+      <details>
+        <summary>È online o in presenza?</summary>
+        <p>Il webinar è online e in diretta, la Masterclass è un video registrato che guardi quando vuoi. Il percorso individuale lo organizziamo insieme in base a dove sei e a come lavori.</p>
+      </details>
+      <details>
+        <summary>Cosa succede nella call? Mi venderete qualcosa?</summary>
+        <p>Ci racconti come lavori oggi, capiamo insieme dove sei bloccato e ti diciamo con onestà se e come possiamo aiutarti. Se pensiamo di non essere la soluzione giusta per te, te lo diciamo.</p>
+      </details>
+      <details>
+        <summary>Quanto costa?</summary>
+        <p>Il webinar è gratuito, e lo è anche la call. Gli altri percorsi dipendono da dove sei e da cosa ti serve: ne parliamo nella call, senza sorprese.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATTI -->
+<section class="contact" id="contatti">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="eyebrow rv">Prenota la call</div>
+      <h2 class="rv" style="margin:18px 0 24px">Raccontaci come lavori adesso. <em>E cosa vorresti che cambiasse davvero.</em></h2>
+      <p class="lead rv">20 minuti, gratis, senza pressione. Ecco cosa succede:</p>
+      <ol class="call-steps rv">
+        <li><span><b>Ci racconti come lavori oggi</b>Ritmi, ore, cosa ti pesa di più.</span></li>
+        <li><span><b>Capiamo in che fase del ciclo sei bloccato</b>Chiarezza, struttura o benessere: di solito il nodo è uno.</span></li>
+        <li><span><b>Ti diciamo con onestà se possiamo aiutarti</b>Anche se la risposta è no.</span></li>
+      </ol>
+      <div class="direct rv">
+        <a href="mailto:agentefelicepro@gmail.com"><div><small>Email</small><b>agentefelicepro@gmail.com</b></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+      </div>
+    </div>
+    <form id="callForm" class="rv" novalidate>
+      <h3>Prenota una call</h3>
+      <p>Compila in 30 secondi: ti prepariamo il messaggio, tu scegli se mandarlo su WhatsApp o via email.</p>
+      <label for="f-name">Nome e cognome</label>
+      <input id="f-name" name="name" required autocomplete="name">
+      <label for="f-phone">Telefono / WhatsApp</label>
+      <input id="f-phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel">
+      <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label for="f-role">Sei…</label>
+      <select id="f-role" name="role">
+        <option>Titolare di agenzia in franchising</option>
+        <option>Titolare di agenzia indipendente</option>
+        <option>Agente immobiliare</option>
+        <option>Altro</option>
+      </select>
+      <label for="f-topic">Ti interessa</label>
+      <select id="f-topic" name="topic">
+        <option value="call">Una call conoscitiva</option>
+        <option value="webinar">Il prossimo webinar gratuito</option>
+        <option value="masterclass">La Masterclass</option>
+        <option value="percorso">Il percorso individuale</option>
+      </select>
+      <label for="f-msg">Come stai lavorando adesso? (facoltativo)</label>
+      <textarea id="f-msg" name="msg"></textarea>
+      <label>Con chi vuoi parlare?</label>
+      <div class="choice">
+        <label><input type="radio" name="who" value="Andrea" checked><span>Andrea</span></label>
+        <label><input type="radio" name="who" value="Federico"><span>Federico</span></label>
+      </div>
+      <button class="btn btn-gold" type="submit" value="wa">Invia su WhatsApp
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <button class="btn btn-ghost" type="submit" value="mail" style="margin-top:10px">Invia via email</button>
+      <div class="form-note">Usiamo i tuoi dati solo per risponderti. Niente newsletter se non la chiedi tu. <a href="privacy.html" style="color:var(--gold-2)">Privacy policy</a></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<div class="mbar" id="mbar">
+  <a href="#contatti" class="btn btn-gold">Prenota la call gratuita</a>
+  <a href="https://wa.me/393751042923" class="wa" target="_blank" rel="noopener" aria-label="Scrivici su WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7L4 20z"/></svg></a>
+</div>
+
+<footer>
+  <div class="wrap foot-brand">
+    <img src="rondine-640.png" alt="" width="120" height="116">
+    <div class="foot-name">Agente Felice</div>
+    <p class="foot-claim">Puoi vendere case senza perdere la tua vita per farlo.</p>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© 2026 Agente Felice · Andrea Bisciotti &amp; Federico Soraci</span>
+    <span>In collaborazione con Realmaps · <a href="privacy.html" style="text-decoration:underline">Privacy policy</a></span>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.body.classList.remove('no-js');
+  if (reduced) document.body.classList.add('reduced');
+
+  /* nav */
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', scrollY > 30);
+  addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* parola per parola nella domanda */
+  const q = document.getElementById('bigq');
+  (function split(node){
+    [...node.childNodes].forEach(n=>{
+      if(n.nodeType===3){
+        const frag=document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(t=>{
+          if(!t) return;
+          if(/^\s+$/.test(t)){frag.appendChild(document.createTextNode(t));return;}
+          const s=document.createElement('span');s.className='w';s.textContent=t;frag.appendChild(s);
+        });
+        n.replaceWith(frag);
+      } else split(n);
+    });
+  })(q);
+
+  /* ---------- RUOTA 3D ---------- */
+  let wheelSpeed = 1; // 1 = gira a vuoto, 0 = calma
+  let flightTarget = 0, flight = 0; // 0 = rondine dentro la ruota, 1 = in volo
+  const swallow = document.getElementById('swallow');
+  const label = document.getElementById('speedLabel');
+  const canvas = document.getElementById('wheel');
+  if (window.THREE) {
+    const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true});
+    renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(40, 1, .1, 100);
+    camera.position.set(0,0,9);
+
+    const gold = new THREE.MeshStandardMaterial({color:0xd4ac62, metalness:1, roughness:.28});
+    const goldSoft = new THREE.MeshStandardMaterial({color:0xecd29a, metalness:.9, roughness:.4});
+    const wheel = new THREE.Group();
+    const R = 2.3, depth = 1.3;
+    [-depth/2, depth/2].forEach(z=>{
+      const ring = new THREE.Mesh(new THREE.TorusGeometry(R,.045,24,200), gold);
+      ring.position.z = z; wheel.add(ring);
+      const hub = new THREE.Mesh(new THREE.TorusGeometry(.22,.035,16,60), gold);
+      hub.position.z = z; wheel.add(hub);
+      for(let i=0;i<6;i++){ // raggi
+        const a=i/6*Math.PI*2;
+        const spoke=new THREE.Mesh(new THREE.CylinderGeometry(.018,.018,R-.22,8),goldSoft);
+        spoke.position.set(Math.cos(a)*(R+.22)/2,Math.sin(a)*(R+.22)/2,z);
+        spoke.rotation.z=a-Math.PI/2; wheel.add(spoke);
+      }
+    });
+    const rungs = 36;
+    for(let i=0;i<rungs;i++){ // pioli
+      const a=i/rungs*Math.PI*2;
+      const rung=new THREE.Mesh(new THREE.CylinderGeometry(.022,.022,depth,8),goldSoft);
+      rung.rotation.x=Math.PI/2; rung.position.set(Math.cos(a)*R,Math.sin(a)*R,0); wheel.add(rung);
+    }
+    const axle = new THREE.Mesh(new THREE.CylinderGeometry(.06,.06,depth+.6,16), gold);
+    axle.rotation.x=Math.PI/2; wheel.add(axle);
+    scene.add(wheel);
+
+    // particelle
+    const N=700, pos=new Float32Array(N*3);
+    for(let i=0;i<N;i++){pos[i*3]=(Math.random()-.5)*22;pos[i*3+1]=(Math.random()-.5)*14;pos[i*3+2]=(Math.random()-.5)*10-2;}
+    const pg=new THREE.BufferGeometry(); pg.setAttribute('position',new THREE.BufferAttribute(pos,3));
+    const dust=new THREE.Points(pg,new THREE.PointsMaterial({color:0xecd29a,size:.025,transparent:true,opacity:.55}));
+    scene.add(dust);
+
+    scene.add(new THREE.AmbientLight(0xffffff,.25));
+    const key=new THREE.PointLight(0xffe2a8,2.2,40); key.position.set(4,4,6); scene.add(key);
+    const rim=new THREE.PointLight(0xb07a2a,2,40); rim.position.set(-6,-3,2); scene.add(rim);
+    const fill=new THREE.DirectionalLight(0xffffff,.5); fill.position.set(0,5,5); scene.add(fill);
+
+    let mx=0,my=0;
+    addEventListener('pointermove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5;},{passive:true});
+
+    function resize(){
+      const w=canvas.clientWidth,h=canvas.clientHeight;
+      renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix();
+      const mobile=w<800;
+      wheel.position.set(mobile?0:3.3, mobile?1.6:0, 0);
+      wheel.scale.setScalar(mobile?.72:1);
+    }
+    addEventListener('resize',resize); resize();
+
+    let rot=0, visible=true, last=performance.now();
+    new IntersectionObserver(([e])=>visible=e.isIntersecting).observe(canvas);
+    function tick(now){
+      requestAnimationFrame(tick);
+      if(!visible) return;
+      const dt=Math.min((now-last)/16.67,3); last=now;
+      const sp = reduced ? .002 : (.003 + wheelSpeed*.085);
+      rot += sp*dt;
+      wheel.rotation.z = -rot;
+      wheel.rotation.y = -.55 + mx*.35;
+      wheel.rotation.x = -.18 + my*.25;
+      // vibra quando gira a vuoto
+      wheel.position.y += ((canvas.clientWidth<800?1.6:0) + Math.sin(now*.05)*.012*wheelSpeed - wheel.position.y)*.3;
+      dust.rotation.y += .0004*dt; dust.position.x = -mx*.4; dust.position.y = my*.3;
+      renderer.render(scene,camera);
+
+      // la rondine parte dal mozzo della ruota e, mentre la ruota rallenta, prende il volo
+      const W=canvas.clientWidth, H=canvas.clientHeight, v=wheel.position.clone().project(camera);
+      const bx=(v.x+1)/2*W, by=(1-v.y)/2*H;
+      flight += (flightTarget-flight)*Math.min(.08*dt,1);
+      const f=flight*flight*(3-2*flight);
+      const x=bx+(W*.5-bx)*f, y=by+H*.42*f + Math.sin(now*.0018)*6*(1-f*.5);
+      const s=.55+.75*f, r=-6*f + Math.sin(now*.0015)*2;
+      swallow.style.transform=`translate(${x}px,${y}px) translate(-50%,-50%) rotate(${r}deg) scale(${s})`;
+    }
+    requestAnimationFrame(tick);
+  } else { canvas.style.display='none'; }
+
+  /* ---------- SCROLL ---------- */
+  if (!window.gsap || reduced) {
+    document.querySelectorAll('.question .w').forEach(w=>w.style.opacity=1);
+    if(label) label.textContent='rallenta';
+    return;
+  }
+  gsap.registerPlugin(ScrollTrigger);
+
+  // la ruota rallenta mentre scorri
+  ScrollTrigger.create({
+    trigger:'.hero', start:'top top', end:'bottom top', scrub:true,
+    onUpdate:s=>{
+      wheelSpeed = 1 - s.progress;
+      flightTarget = Math.min(1, s.progress*1.35);
+      label.textContent = s.progress<.3 ? 'gira a vuoto' : s.progress<.65 ? 'rallenta' : 'e tu riprendi il volo';
+    }
+  });
+  gsap.to('.hero .wrap',{y:-120,opacity:.2,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+
+  // reveal
+  gsap.utils.toArray('.rv').filter(el=>!el.closest('.hero')).forEach(el=>{
+    gsap.to(el,{opacity:1,y:0,duration:1.1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%'}});
+  });
+  gsap.to('.hero .rv',{opacity:1,y:0,duration:1.3,stagger:.12,ease:'power3.out',delay:.15});
+
+  // domanda parola per parola
+  gsap.to('.question .w',{opacity:1,stagger:.1,ease:'none',scrollTrigger:{trigger:'.question',start:'top 70%',end:'center 45%',scrub:true}});
+
+  // ciclo orizzontale su desktop
+  const mm = gsap.matchMedia();
+  mm.add('(min-width: 861px)',()=>{
+    const track=document.getElementById('track');
+    const dist=()=>track.scrollWidth-innerWidth;
+    gsap.to(track,{x:()=>-dist(),ease:'none',scrollTrigger:{trigger:'#trackOuter',start:'center center',end:()=>'+='+dist(),pin:true,scrub:1,invalidateOnRefresh:true}});
+  });
+  mm.add('(max-width: 860px)',()=>{
+    gsap.utils.toArray('.step').forEach(el=>gsap.from(el,{opacity:0,y:50,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%'}}));
+  });
+
+  // marquee
+  gsap.to('#marq',{xPercent:-25,ease:'none',scrollTrigger:{trigger:'.why',start:'top bottom',end:'bottom top',scrub:true}});
+
+  // pilastri 3D tilt
+  document.querySelectorAll('.pillar').forEach(card=>{
+    card.addEventListener('pointermove',e=>{
+      const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+      card.style.transform=`rotateY(${(x-.5)*14}deg) rotateX(${(.5-y)*14}deg)`;
+      card.style.setProperty('--mx',x*100+'%');card.style.setProperty('--my',y*100+'%');
+    });
+    card.addEventListener('pointerleave',()=>card.style.transform='');
+  });
+})();
+
+/* CRM: ogni form salva il lead nel gestionale (crm/), vedi crm/GUIDA-CRM.md */
+const CRM_URL='crm/api/lead.php';
+const UTM=(()=>{
+  const keys=['utm_source','utm_medium','utm_campaign'], q=new URLSearchParams(location.search), o={};
+  try{
+    keys.forEach(k=>{if(q.get(k)) o[k]=q.get(k);});
+    if(Object.keys(o).length) sessionStorage.setItem('af-utm',JSON.stringify(o));
+    return Object.keys(o).length?o:JSON.parse(sessionStorage.getItem('af-utm')||'{}');
+  }catch(e){return o;}
+})();
+function sendLead(data){
+  try{
+    fetch(CRM_URL,{method:'POST',headers:{'Content-Type':'application/json'},keepalive:true,
+      body:JSON.stringify({...data,...UTM,page:location.pathname,referrer:document.referrer})}).catch(()=>{});
+  }catch(e){}
+}
+
+/* form → WhatsApp */
+document.querySelectorAll('[data-topic]').forEach(a=>a.addEventListener('click',()=>{
+  document.getElementById('f-topic').value=a.dataset.topic;
+}));
+let quizScore = null;
+document.getElementById('callForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const f=e.target, name=f.name.value.trim(), phone=f.phone.value.trim();
+  if(!name){f.name.focus();f.name.style.borderColor='#e07a5f';return;}
+  if(phone.replace(/\D/g,'').length<8){f.phone.focus();f.phone.style.borderColor='#e07a5f';return;}
+  const topic=f.topic.options[f.topic.selectedIndex].text;
+  if(!f.website.value) sendLead({source:'call',name,phone,role:f.role.value,interest:topic,message:f.msg.value.trim(),preferred:f.who.value,
+    ...(quizScore?{pillar:quizScore.weak,score:quizScore.score,score_c:quizScore.per[0],score_s:quizScore.per[1],score_b:quizScore.per[2]}:{})});
+  let txt=`Ciao, sono ${name} (${f.role.value}). Ho visto il sito di Agente Felice e mi interessa: ${topic.toLowerCase()}.`;
+  if(quizScore!==null) txt+=`\nHo fatto il test del Ciclo del Criceto: ${quizScore.score}/18, punto debole: ${quizScore.weak}.`;
+  txt+=`\nVorrei parlare con ${f.who.value}.`;
+  if(f.msg.value.trim()) txt+=`\n\n${f.msg.value.trim()}`;
+  if(e.submitter && e.submitter.value==='mail'){
+    location.href=`mailto:agentefelicepro@gmail.com?subject=${encodeURIComponent('Call con '+f.who.value+' – '+name)}&body=${encodeURIComponent(txt)}`;
+  } else {
+    // WhatsApp arriva sempre al numero di Andrea
+    window.open(`https://wa.me/393751042923?text=${encodeURIComponent(txt)}`,'_blank','noopener');
+  }
+});
+
+/* test del Ciclo del Criceto */
+(function(){
+  /* ===== BREVO =====
+     Quando il form Brevo è pronto, incolla qui l'URL "action" del form
+     (inizia con https://...sibforms.com/serve/...). Vedi brevo/GUIDA-BREVO.md.
+     Finché resta vuoto, la richiesta arriva via email ad agentefelicepro@gmail.com. */
+  const BREVO = {
+    formUrl: '',
+    fields: { email:'EMAIL', nome:'NOME', pilastro:'PILASTRO', punteggio:'PUNTEGGIO' }
+  };
+  const PRIVACY_URL = 'privacy.html';
+  // 3 domande per pilastro: "Sì, spesso" = segnale forte del ciclo
+  const Q=[
+    {p:0,t:'La sera, il primo pensiero va al fatturato del mese.'},
+    {p:1,t:'Nella stessa giornata fai ricerca, trattative e carte per i rogiti.'},
+    {p:2,t:'Rispondi ai clienti dopo le 21 o nel weekend.'},
+    {p:0,t:'Ogni mattina tutto ti sembra ugualmente urgente.'},
+    {p:1,t:'Quando chiudi tante vendite, smetti di cercare nuove case.'},
+    {p:2,t:'La domenica sera, il lunedì ti pesa già.'},
+    {p:0,t:'Se ti chiedessero dove vuoi essere tra tre anni, ti mancherebbe una risposta precisa.'},
+    {p:1,t:'Fai da solo cose che potresti delegare, perché "nessuno le fa come te".'},
+    {p:2,t:'Dormi poco, o non trovi mai il tempo per muoverti.'}
+  ];
+  const P=[
+    {n:'Chiarezza',a:'la chiarezza',t:'Il tuo punto di partenza è la chiarezza',
+     d:'Senza una direzione precisa, ogni decisione sembra urgente e finisci per fare tutto, male, insieme. E l\'unico metro che ti resta per sapere se stai andando bene è il fatturato del mese.',
+     e:'Stasera prendi un foglio e scrivi tre cose: dove sei davvero oggi, dove vuoi essere tra tre anni, e una cosa che sei disposto a smettere di fare per arrivarci. L\'ultima è la più difficile, ed è quella che conta.'},
+    {n:'Struttura',a:'la struttura',t:'Il tuo punto di partenza è la struttura',
+     d:'Il problema non è che le fasi del lavoro esistono: è che si mescolano. Fai acquisizione, vendita e burocrazia nello stesso giorno, non entri mai in profondità in nessuna, e quando vendi ti dimentichi di cercare.',
+     e:'Apri l\'agenda della prossima settimana e dedica ogni mattina a una sola fase: per esempio lunedì e martedì acquisizione, mercoledì vendite, giovedì carte e rogiti. Provalo per una settimana e guarda cosa cambia.'},
+    {n:'Benessere',a:'il benessere',t:'Il tuo punto di partenza è il benessere',
+     d:'Il tuo strumento di lavoro principale sei tu, e lo stai consumando. Dormi poco, non stacchi mai, e arrivi alle trattative più stanco e meno lucido proprio quando conta di più.',
+     e:'Scegli un orario dopo il quale il telefono di lavoro resta spento, per esempio le 20:30, e rispettalo per 7 giorni. Chi ti stima come professionista aspetterà fino a domani mattina.'}
+  ];
+  const R=[
+    {max:5,t:'Sei ai margini del ciclo',w:'La ruota gira piano',s:9,d:'Hai già un certo equilibrio, e non è poco in questo mestiere. Vale la pena proteggerlo prima che un periodo intenso te lo porti via.'},
+    {max:11,t:'Il ciclo ti sta prendendo',w:'La ruota accelera',s:3.5,d:'Riconosci parecchi segnali: il lavoro decide i tuoi ritmi più di quanto li decida tu. È il momento migliore per intervenire, prima che diventi la normalità.'},
+    {max:18,t:'Sei dentro la ruota',w:'La ruota gira a vuoto',s:1,d:'Corri sempre e il ciclo riparte da solo. Non è un problema di impegno o di capacità: è il sistema in cui lavori. Ed è esattamente da qui che si comincia.'}
+  ];
+  const wheelSvg=`<svg class="mini-wheel" viewBox="0 0 120 120" aria-hidden="true"><g fill="none" stroke="#d4ac62">
+    <circle cx="60" cy="60" r="54" stroke-width="2.5"/><circle cx="60" cy="60" r="46" stroke-width="1" opacity=".5"/>
+    ${Array.from({length:24},(_,k)=>{const a=k/24*Math.PI*2;return `<line x1="${60+46*Math.cos(a)}" y1="${60+46*Math.sin(a)}" x2="${60+54*Math.cos(a)}" y2="${60+54*Math.sin(a)}" stroke-width="1.5"/>`}).join('')}
+    ${Array.from({length:6},(_,k)=>{const a=k/6*Math.PI*2;return `<line x1="60" y1="60" x2="${60+46*Math.cos(a)}" y2="${60+46*Math.sin(a)}" stroke-width="1.2"/>`}).join('')}
+    <circle cx="60" cy="60" r="6" fill="#ecd29a" stroke="none"/></g></svg>`;
+  const body=document.getElementById('quizBody'), bar=document.getElementById('quizBar');
+  let i=0, answers=[];
+  function ask(){
+    bar.style.width=(i/Q.length*100)+'%';
+    body.innerHTML=`<div class="quiz-count">Domanda ${i+1} di ${Q.length} · ${P[Q[i].p].n}</div>
+      <p class="quiz-q">${Q[i].t}</p>
+      <div class="quiz-opts"><button data-v="2">Sì, spesso</button><button data-v="1">A volte</button><button data-v="0">Quasi mai</button></div>
+      ${i>0?'<button class="quiz-back" type="button">← Indietro</button>':''}`;
+    body.querySelectorAll('.quiz-opts button').forEach(b=>b.onclick=()=>{answers[i]=+b.dataset.v;i++;i<Q.length?ask():done();});
+    const back=body.querySelector('.quiz-back'); if(back) back.onclick=()=>{i--;ask();};
+  }
+  function done(){
+    bar.style.width='100%';
+    const per=[0,0,0]; Q.forEach((q,k)=>per[q.p]+=answers[k]);
+    const score=per[0]+per[1]+per[2];
+    const weak=per.indexOf(Math.max(...per)), r=R.find(x=>score<=x.max), p=P[weak];
+    quizScore={score,weak:p.n,per};
+    const bars=P.map((x,k)=>`<div class="pbar${k===weak?' weak':''}"><span>${x.n}</span><div><i style="width:${per[k]/6*100}%"></i></div><b>${per[k]}/6</b></div>`).join('');
+    body.innerHTML=`<div class="quiz-result">
+      <div class="res-head">${wheelSvg.replace('class="mini-wheel"',`class="mini-wheel" style="animation-duration:${r.s}s"`)}
+        <div><div class="quiz-count">${r.w}</div><div class="score">${score}<small>/18</small></div></div></div>
+      <h3>${r.t}</h3><p>${r.d}</p>
+      <div class="pbars">${bars}</div>
+      <div class="profile">
+        <div class="quiz-count">${per[weak]?'Il tuo punto debole':'Da dove partire comunque'} · ${p.n}</div>
+        <h4>${p.t}</h4><p>${p.d}</p>
+        <div class="exercise"><b>Il tuo primo esercizio, da domani</b><p>${p.e}</p></div>
+      </div>
+      <form class="capture" id="capture" novalidate>
+        <div class="quiz-count">Il percorso completo · 3 esercizi</div>
+        <h4>Ricevi gli altri 2 esercizi per ${p.a}</h4>
+        <p>Uno a settimana, con le spiegazioni di Andrea e Federico. Te li mandiamo via email.</p>
+        <div class="cap-row">
+          <input name="nome" placeholder="Il tuo nome" autocomplete="given-name" aria-label="Il tuo nome">
+          <input name="email" type="email" placeholder="La tua email" autocomplete="email" aria-label="La tua email">
+        </div>
+        <label class="consent"><input type="checkbox" name="ok"> <span>Acconsento a ricevere email da Agente Felice. Posso cancellarmi quando voglio.${PRIVACY_URL?` <a href="${PRIVACY_URL}" target="_blank" rel="noopener">Privacy</a>`:''}</span></label>
+        <input type="text" name="email_address_check" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn btn-gold" type="submit">Inviami gli esercizi</button>
+        <div class="cap-msg" role="status"></div>
+      </form>
+      <div class="quiz-actions"><span class="or">Oppure parliamone direttamente:</span><a href="#contatti" class="btn btn-ghost" id="quizCta">Prenota la call</a></div>
+      <button class="quiz-back" id="quizAgain" type="button">↺ Rifai il test</button></div>`;
+    document.getElementById('capture').addEventListener('submit',ev=>{
+      ev.preventDefault();
+      const f=ev.target, msg=f.querySelector('.cap-msg');
+      const nome=f.nome.value.trim(), email=f.email.value.trim();
+      if(f.email_address_check.value) return; // bot
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){msg.textContent='Controlla l\'indirizzo email.';msg.className='cap-msg err';f.email.focus();return;}
+      if(!f.ok.checked){msg.textContent='Serve il tuo consenso per mandarti le email.';msg.className='cap-msg err';return;}
+      sendLead({source:'test',name:nome,email,consent:1,pillar:p.n,score,score_c:per[0],score_s:per[1],score_b:per[2]});
+      const ok=()=>{f.innerHTML=`<div class="quiz-count">Fatto${nome?', '+nome:''}</div><h4>Controlla la posta.</h4><p>Il primo esercizio arriva tra pochi minuti. Se non lo vedi, guarda anche nello spam o in "Promozioni".</p>`;};
+      if(BREVO.formUrl){
+        const fd=new FormData(), k=BREVO.fields;
+        fd.append(k.email,email); if(nome) fd.append(k.nome,nome);
+        fd.append(k.pilastro,p.n); fd.append(k.punteggio,String(score));
+        fd.append('OPT_IN','1'); fd.append('email_address_check',''); fd.append('locale','it');
+        f.querySelector('button').disabled=true; msg.textContent='Invio in corso…'; msg.className='cap-msg';
+        fetch(BREVO.formUrl,{method:'POST',mode:'no-cors',body:fd}).then(ok).catch(()=>{
+          msg.textContent='Qualcosa non ha funzionato. Riprova tra poco o scrivici ad agentefelicepro@gmail.com.';msg.className='cap-msg err';f.querySelector('button').disabled=false;
+        });
+      } else {
+        // finché Brevo non è collegato: la richiesta arriva via email
+        location.href=`mailto:agentefelicepro@gmail.com?subject=${encodeURIComponent('Esercizi '+p.n+(nome?' – '+nome:''))}&body=${encodeURIComponent(`Ciao, ho fatto il test del Ciclo del Criceto sul sito.\nPunteggio: ${score}/18 (${r.t})\nChiarezza ${per[0]}/6 · Struttura ${per[1]}/6 · Benessere ${per[2]}/6\n\nMandatemi gli esercizi per ${p.a}.\nNome: ${nome}\nEmail: ${email}\nConsenso a ricevere email: sì`)}`;
+        ok();
+      }
+    });
+    document.getElementById('quizCta').onclick=()=>{
+      document.getElementById('f-topic').value='call';
+      const m=document.getElementById('f-msg'); if(!m.value) m.value=`Dal test il mio punto debole è ${p.a}.`;
+    };
+    document.getElementById('quizAgain').onclick=()=>{i=0;answers=[];quizScore=null;ask();document.getElementById('quiz').scrollIntoView({block:'start'});};
+  }
+  ask();
+})();
+
+/* barra fissa mobile: compare dopo l'hero, sparisce sui contatti */
+(function(){
+  const bar=document.getElementById('mbar'), hero=document.querySelector('.hero'), contact=document.getElementById('contatti');
+  let pastHero=false, atContact=false;
+  const upd=()=>bar.classList.toggle('show',pastHero&&!atContact);
+  new IntersectionObserver(([e])=>{pastHero=!e.isIntersecting;upd();}).observe(hero);
+  new IntersectionObserver(([e])=>{atContact=e.isIntersecting;upd();}).observe(contact);
+})();
+</script>
+</body>
+</html>
